@@ -32,8 +32,8 @@ project "sample"
 		"premake4.lua"
 		, "*.h"
 		, "*.cpp"
-		, "platform/**.h"
-		, "platform/**.cpp"
+		, "platform/*.h"
+		, "platform/*.cpp"
 
 		-- profiler hooks
 		, "profiler/*Instrumentation*"

@@ -10,11 +10,25 @@ project "ditfw-profiler"
 
 	kind "StaticLib"
 
+	vectorextensions "SSE2"
+	flags { "Unicode" }
+
+	configuration "Debug"
+		floatingpoint "Strict"
+
+	configuration "Release"
+		floatingpoint "Fast"
+		--flags { "LinkTimeOptimization" }
+		buildoptions { "/O2" }
+
+	configuration{}
+
 	files
 	{
 		"*profiler.lua"
 		, "profiler/Profiler.h"
 		, "profiler/Profiler.cpp"
+		, "platform/DXUT/**"
 
 		-- reader / writer queue
 		, depsdir .. "/moodycamel/*.h"
@@ -28,6 +42,8 @@ project "ditfw-profiler"
 		-- collapse header dir structure
 		, "profiler"
 		, "platform"
+		, "platform/DXUT/Core"
+		, "platform/DXUT/Optional"
 		, Core.includedirs
 		
 		-- reader / writer queue
