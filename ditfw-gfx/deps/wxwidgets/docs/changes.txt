@@ -1,0 +1,77 @@
+-------------------------------------------------------------------------------
+                             wxWidgets Change Log
+-------------------------------------------------------------------------------
+
+Note: This file contains the list of changes since wxWidgets 3.x, please see
+      docs/changes_30.txt for the changes in the previous versions.
+
+
+INCOMPATIBLE CHANGES SINCE 3.0.x:
+=================================
+
+Changes in behaviour not resulting in compilation errors
+--------------------------------------------------------
+
+- wxRibbonButtonBar::DeleteButton() now deletes and not just removes the button.
+- Default interpolation mode in wxGDIPlusContext under MSW is now
+  wxINTERPOLATION_DEFAULT and not wxINTERPOLATION_GOOD as in 3.0 for
+  consistency with OS X, call SetInterpolationQuality() explicitly if needed.
+
+
+3.1.0: (released 2014-xx-xx)
+----------------------------
+
+All:
+
+- Allow iterating over wxCmdLineParser arguments in order (Armel Asselin).
+- Add wxScopedArray ctor taking the number of elements to allocate.
+- Add wxDynamicLibrary::GetModuleFromAddress() (Luca Bacci).
+- Implement wxThread::SetPriority() for pthreads (Luca Bacci).
+- Add wxInt64 support to wxText{Input,Output}Stream (Alexander Bezzubikov).
+- Define wxOVERRIDE as override for supporting compilers (Thomas Goyne).
+
+All (GUI):
+
+- XRC handler for wxAuiToolBar added (Kinaou Hervé, David Hart).
+- Add wxFD_NO_FOLLOW style for wxFileDialog (Luca Bacci).
+- Add support for embedding bitmaps in generated SVG in wxSVGFileDC (iwbnwif).
+- Add support for sorting wxDataViewCtrl by multiple columns (Trigve).
+- Allow dropping data on wxDataViewCtrl background (Laurent Poujoulat).
+- Add wxHtmlWindow::SetDefaultHTMLCursor() (Jeff A. Marr).
+- Add default ctor and Create() to wxContextHelpButton (Hanmac).
+- Send events when toggling wxPropertyGrid nodes from keyboard (Armel Asselin).
+- Fix wxRearrangeList::Check() which asserted and misbehaved before.
+- Optimized wxRTC insertion and deletion when floating objects are present.
+- Added on-demand image loading option to wxRTC.
+- Add wxFont::GetBaseFont() (Melroy Tellis).
+- Update included Scintilla to version 3.3.9 (Christian Walther).
+- Add support for loading old V1 BMP files to wxImage (Artur Wieczorek).
+- Improve auto sizing of wrapped cells in wxGrid (iwbnwif).
+- Fix handling of rectangular selections in wxStyledTextCtrl (roberto).
+
+wxGTK:
+
+- Support building wxGTK3 under Windows (Kolya Kosenko).
+- Correctly detect cancelled drag-and-drop operations (Kinaou Hervé).
+
+wxMSW:
+
+- Improve wxMimeTypesManager open command detection (Eric Jensen).
+- Make wxFILTER_INCLUDE_LIST in wxTextValidator actually usable.
+- Fix setting menu item bitmaps after appending them (Artur Wieczorek).
+- Fix handling of selected images in wxBitmapButton (Artur Wieczorek).
+- Fix loading of bitmap with non-pre-multiplied alpha (Artur Wieczorek).
+- Support multiline strings in wxDC::DrawRotatedText() (Artur Wieczorek).
+- Fix stretchable spacers in vertical toolbars (Artur Wieczorek).
+- Implement setting foreground colour for wxRadioButton (Artur Wieczorek).
+- Add font colour support to wxFontPickerCtrl (Pana Alexandru).
+- Add wxEnhMetaFile::Detach() (Luca Bacci).
+- Add support for saving 256*256 32bpp ICOs in PNG format (Artur Wieczorek).
+- Keep menu item icon after removing and adding it back (Artur Wieczorek).
+- Add wxThread::MSWGetHandle() (troelsk).
+- Allow using sizers for laying out wxMDIClientWindow (Artur Wieczorek).
+
+wxOSX/Cocoa:
+
+- Add support for wxEVT_COMBOBOX_DROPDOWN and wxEVT_COMBOBOX_CLOSEUP
+  events (Igor Korot).
